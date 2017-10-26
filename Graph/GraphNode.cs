@@ -12,6 +12,14 @@ namespace Graph
 
         public GraphNode(T value, IList<T> neighbours) : base(value, neighbours) { }
 
-        private List<int> costs;
+        public List<int> Costs
+        {
+            get
+            {
+                _costs = _costs ?? new List<int>();
+                return _costs;
+            }
+        }
+        private List<int> _costs;
     }
 }

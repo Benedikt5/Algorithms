@@ -25,23 +25,28 @@ namespace Graph
             return _nodes.Any(x => x.Value.Equals(value));
         }
 
-        public abstract bool RemoveNode(T value);
-        //{
-        //    var nodeToRemove = _nodes.FirstOrDefault(x => x.Value.Equals(value));
-        //    if (nodeToRemove == null)
-        //        return false;
+        public bool RemoveNode(T value)
+        {
+            var nodeToRemove = _nodes.FirstOrDefault(x => x.Value.Equals(value));
+            if (nodeToRemove == null)
+                return false;
 
-        //    _nodes.Remove(nodeToRemove);
+            _nodes.Remove(nodeToRemove);
 
-        //    _nodes.ForEach(x => 
-        //    {
-        //        x.Neighbours.Fin
-        //    });
+            _nodes.ForEach(x =>
+            {
+                var index = x.Neighbours.IndexOf(value);
+                if (index != -1)
+                {
+                    x.Neighbours.RemoveAt(index);
+                    x.Costs.RemoveAt(index);
+                }
+            });
 
-        //    return true;
-        //}
+            return true;
+        }
 
-        public List<GraphNode<T>> Nodes
+public List<GraphNode<T>> Nodes
         {
             get { return _nodes; }
         }
