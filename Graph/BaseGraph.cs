@@ -35,7 +35,7 @@ namespace Graph
 
             _nodes.ForEach(x =>
             {
-                var index = x.Neighbours.IndexOf(value);
+                var index = x.Neighbours.IndexOf(nodeToRemove);
                 if (index != -1)
                 {
                     x.Neighbours.RemoveAt(index);

@@ -8,13 +8,13 @@ namespace Graph
     {
         public Node() { }
         public Node(T data) : this(data, null) { }
-        public Node(T data, IList<T> neighbours)
+        public Node(T data, IList<Node<T>> neighbours)
         {
             Value = data;
             Neighbours = neighbours;
         }
 
-        public IList<T> Neighbours { get; set; } = new List<T>();
+        public IList<Node<T>> Neighbours { get; set; } = new List<Node<T>>();
         public T Value { get; set; }
     }
 }
