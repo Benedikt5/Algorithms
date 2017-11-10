@@ -9,6 +9,7 @@ namespace Graph
     {
         protected UniGraph(IEnumerable<GraphNode<T>> nodes) : base(nodes)
         {
+            // feature comment
         }
 
         public override void AddEdge(GraphNode<T> from, GraphNode<T> to, int cost)
